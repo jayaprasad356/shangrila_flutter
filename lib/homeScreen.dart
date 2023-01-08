@@ -294,13 +294,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     bool status = json["success"];
                     String msg = json["message"];
-                    String wallet = json['data'][0]['wallet'];
+                    int wallet = json['data'][0]['wallet'];
+                    print(wallet);
                     setState(() {
-                      _value = wallet;
+                      _value = wallet.toString();
                     });
                     if (status) {
                       _value = wallet.toString();
-                      prefs.setString(Constant.WALLET_BALANCE, wallet);
+                      prefs.setString(Constant.WALLET_BALANCE, wallet.toString());
                       Navigator.of(context).pop(wallet);
                     } else {
                       Utils u = Utils();

@@ -1,16 +1,16 @@
 class Constant {
-  static const String baseUrl = "https://shangrila.greymatterworks.in/api/";
-  static const String loginUrl = "${baseUrl}login.php";
-  static const String signupUrl = "${baseUrl}signup.php";
-  static const String RechargeUrl = "${baseUrl}add-recharge.php";
-  static const String CALCULATE_BILL_URL = "${baseUrl}calculate-bill.php";
-  static const String PAYBILL_URL = "${baseUrl}paybill.php";
-  static const String EMAIL = "email";
+  static const String baseUrl = "https://shanevc2.greymatterworks.in/api/";
+  static const String loginUrl = "${baseUrl}userlogin.php";
+  static const String signupUrl = "${baseUrl}userregister.php";
+  static const String RechargeUrl = "${baseUrl}start_recharge_api.php";
+  static const String CALCULATE_BILL_URL = "${baseUrl}find_bill.php";
+  static const String PAYBILL_URL = "${baseUrl}submitbill.php";
+  static const String EMAIL = "user_email_id";
   static const String PASSWORD = "password";
   static const String SUCCESS = "success";
   static const String MESSAGE = "message";
-  static const String PROPERTY_TYPE = "property_type";
-  static const String BEDROOMS_COUNT = "bedrooms_count";
+  static const String PROPERTY_TYPE = "property_classify";
+  static const String BEDROOMS_COUNT = "total_bedrooms";
   static const String EVC_CODE = "evc_code";
   static const String WALLET_BALANCE = "wallet_balance";
   static const String USER_ID = "user_id";

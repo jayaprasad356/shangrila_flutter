@@ -75,9 +75,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
               Map<String, dynamic> bodyObject = {
                 Constant.USER_ID: userId,
-                Constant.EMR_DAY: emrDay,
-                Constant.EMR_NIGHT: emrNight,
-                Constant.GMR: gmr,
+              //  Constant.EMR_DAY: emrDay,
+              //  Constant.EMR_NIGHT: emrNight,
+              //  Constant.GMR: gmr,
                 Constant.DATE: date,
                 "total":total.toString()
               };
@@ -89,8 +89,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
               SharedPreferences prefs =
               await SharedPreferences.getInstance();
               if(status){
-                String wallet = json['data'][0]['wallet'];
-                prefs.setString(Constant.WALLET_BALANCE, wallet);
+                int wallet = json['data'][0]['wallet'];
+                prefs.setString(Constant.WALLET_BALANCE, wallet.toString());
 
                 Navigator.pushAndRemoveUntil(
                     context,

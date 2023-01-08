@@ -223,8 +223,7 @@ class _SignUpState extends State<SignUp> {
                         msg = json["message"];
                         status = json["success"];
                       } catch (e) {
-                        // An error occurred
-
+                        print(e);
                       }
 
                       // Get the success field

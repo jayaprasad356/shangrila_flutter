@@ -44,13 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
   late Map<String, dynamic> data;
   late Map<String, dynamic> wallets;
   late bool status;
-  late String wallet;
-  late String id;
+  late int wallet;
+  late int id;
   late bool isRegister;
 
   @override
   void initState() {
-    // TODO: implement initState
 
     // Get the value from shared preferences
     SharedPreferences.getInstance().then((prefs) {
@@ -92,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.only(right: 15, left: 15),
                 child: TextField(
+
                   decoration: const InputDecoration(
                     prefixIcon: Icon(
                       Icons.mail,
@@ -109,9 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     hintText: 'Email',
                   ),
                   onChanged: (value) {
-                    // The value variable contains the current value of the TextField
-                    // You can use it to set the email body
-
                     emailBody = value;
                   },
                 ),
@@ -172,18 +169,24 @@ class _MyHomePageState extends State<MyHomePage> {
                         String jsonString = await apiCall(url, bodyObject);
                         dynamic json = jsonDecode(jsonString);
 
-                        wallet = json['data'][0]['wallet'];
-                        id = json['data'][0]['id'];
+                        // wallet = json['data'][0];
+                        //  id = json['data'][0]['id'];
+                        var udate = json['data'][0];
+                        wallet = udate['wallet'];
+
+                        id = udate['id'];
+
                         status = json["success"];
                       } catch (e) {
-                        // An error occurred
+                        print(e);
                       }
 
                       if (status) {
                         SharedPreferences prefs =
                             await SharedPreferences.getInstance();
-                        prefs.setString(Constant.WALLET_BALANCE, wallet);
-                        prefs.setString(Constant.USER_ID, id);
+                        prefs.setString(
+                            Constant.WALLET_BALANCE, wallet.toString());
+                        prefs.setString(Constant.USER_ID, id.toString());
                         prefs.setBool(Constant.IS_REGISTER, true);
                         Navigator.pushAndRemoveUntil<dynamic>(
                           context,
